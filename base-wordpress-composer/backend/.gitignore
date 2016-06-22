@@ -1,0 +1,8 @@
+#puphpet/config-custom.yaml
+
+#html auto-generated. TODO 
+html
+
+# Vagrant
+bin
+.vagrant

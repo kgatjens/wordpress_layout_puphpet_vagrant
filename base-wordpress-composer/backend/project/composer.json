@@ -1,0 +1,122 @@
+{
+  "name": "roots/bedrock",
+  "type": "project",
+  "license": "MIT",
+  "description": "A modern WordPress stack",
+  "homepage": "https://roots.io/bedrock/",
+  "authors": [
+    {
+      "name": "Scott Walkinshaw",
+      "email": "scott.walkinshaw@gmail.com",
+      "homepage": "https://github.com/swalkinshaw"
+    },
+    {
+      "name": "Ben Word",
+      "email": "ben@benword.com",
+      "homepage": "https://github.com/retlehs"
+    }
+  ],
+  "packages":[
+    {
+      "type"   : "package",
+      "package": {
+          "name"   : "ken/wordpress",
+          "type"   : "wordpress-core",
+          "version": "4.4.2",
+          "dist"   : {
+              "url" : "http://wordpress.org/last.zip",
+              "type": "zip"
+          },
+          "source" : {
+              "url"  : "https://github.com/WordPress/WordPress",
+              "type" : "git",
+              "reference": "4.4.2"
+          },
+          "require": {
+              "johnpbloch/wordpress-core-installer": "~0.1"
+          }
+      }
+  }
+  ],
+  "keywords": [
+    "bedrock", "roots", "wordpress", "stack", "composer", "vagrant", "wp"
+  ],
+  "support": {
+    "issues": "https://github.com/roots/bedrock/issues",
+    "forum": "https://discourse.roots.io/category/bedrock"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "secure-http": false
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://wpackagist.org"
+    },
+    {
+      "type"   : "package",
+      "package": {
+          "name"   : "ken/wordpress",
+          "type"   : "wordpress-core",
+          "version": "dev-master",
+          "dist"   : {
+              "url" : "http://wordpress.org/latest.zip",
+              "type": "zip"
+          },
+          "source" : {
+              "url"  : "https://github.com/WordPress/WordPress",
+              "type" : "git",
+              "reference": "master"
+          },
+          "require": {
+              "johnpbloch/wordpress-core-installer": "~0.1"
+          }
+      }
+  },
+    {
+      "type"   : "package",
+      "package": {
+          "name"   : "plugin/wp-posts-to-posts",
+          "type"   : "wordpress-plugin",
+          "version": "1.6.5",
+          "dist" : {
+              "url"  : "https://downloads.wordpress.org/plugin/posts-to-posts.1.6.5.zip",
+              "type" : "zip",
+              "reference": "master"
+          }
+      }
+  }
+  ,
+    {
+      "type"   : "package",
+      "package": {
+          "name"   : "plugin/acf",
+          "type"   : "wordpress-plugin",
+          "version": "dev-master",
+          "source" : {
+              "url"  : "https://github.com/elliotcondon/acf",
+              "type" : "git",
+              "reference": "master"
+          }
+      }
+  }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "composer/installers": "~1.0.12",
+    "vlucas/phpdotenv": "^2.0.1",
+    "ken/wordpress": "dev-master",
+    "plugin/wp-posts-to-posts": "1.6.5",
+    "plugin/acf": "dev-master",
+    "oscarotero/env": "^1.0"
+  },
+  "extra": {
+    "installer-paths": {
+      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "wordpress-install-dir": "web/wp"
+  }
+}

@@ -1,0 +1,5 @@
+#config for puppet run composer
+wpcconf:
+    install: '1'
+    settings:
+        path: '/vagrant/project'
